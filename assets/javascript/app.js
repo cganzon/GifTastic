@@ -35,7 +35,7 @@ $(document).on("click", ".button", function (event) {
     // Getting text of the clicked button to concatenate with queryURL
     var search = $(this).text();
     // Access to GIPHY API
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=AUTbm6TcaRY094k2XXBf2EfgjR4xynUu&limit=5";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=AUTbm6TcaRY094k2XXBf2EfgjR4xynUu&limit=10";
 
     $.ajax({
         url: queryURL,
