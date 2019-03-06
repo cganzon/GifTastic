@@ -20,10 +20,10 @@ $(document).on("click", "#addButton", function (event) {
     // Getting user's text from the input box and making a new button
     var newButton = $("#newButton").val()
     topics.push(newButton);
+    // Calling makeButtons function again to regenerate new buttons with user's input added
     makeButtons();
-    // var addButton = $("<button>").text(newButton);
-    // addButton.attr("class", "button");
-    // $("#buttons").append(addButton);
+    // Clears text from the input field after the button is made
+    $("#newButton").val("");
 });
 
 // Event listener for all buttons
@@ -46,7 +46,13 @@ $(document).on("click", ".button", function (event) {
         // Displaying the rating and gif on the page
         for (var i = 0; i < results.length; i++) {
             var newDiv = $("<div>");
-            var image = $("<img>").attr("src", results[i].images.fixed_height.url);
+            // Using an object to set multiple classes on the gif
+            var image = $("<img>").attr({
+                "src": results[i].images.fixed_height_still.url,
+                "data-animate": results[i].images.fixed_height.url,
+                "data-still": results[i].images.fixed_height_still.url
+            });
+            image.addClass("gif");
             var rating = $("<p>").text("Rating: " + results[i].rating);
             newDiv.append(rating);
             newDiv.append(image);
@@ -55,3 +61,23 @@ $(document).on("click", ".button", function (event) {
     });
 
 });
+
+// Allows GIFs to be paused and played
+$(document).on("click", ".gif", function () {
+    var state = $(this).attr("data-state");
+    console.log(state);
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        // Then, set the image's data-state to animate
+        $(this).attr("data-state", "animate");
+    }
+    // Else set src to the data-still value
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+// small bug where you initially have to double click the GIF to play it
+
