@@ -4,7 +4,7 @@ var topics = ["pizza", "hot dogs", "hamburgers", "chicken", "kbbq"];
 function makeButtons() {
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>").text(topics[i]);
-        button.attr("class", "button");
+        button.addClass("button btn btn-outline-secondary");
         $("#buttons").append(button);
     };
 };
@@ -46,7 +46,8 @@ $(document).on("click", ".button", function (event) {
         // Displaying the rating and gif on the page
         for (var i = 0; i < results.length; i++) {
             var newDiv = $("<div>");
-            // Using an object to set multiple classes on the gif
+            newDiv.addClass("card");
+            // Using an object to set multiple attributes on the gif
             var image = $("<img>").attr({
                 "src": results[i].images.fixed_height_still.url,
                 "data-animate": results[i].images.fixed_height.url,
