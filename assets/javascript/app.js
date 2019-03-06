@@ -1,4 +1,4 @@
-var topics = ["pizza", "hot dogs", "hamburgers", "chicken", "kbbq"];
+var topics = ["pizza", "hot dogs", "hamburgers", "chicken wings", "kbbq"];
 
 // Dynamically displaying buttons on page
 function makeButtons() {
