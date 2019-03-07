@@ -1,1 +1,3 @@
 # GifTastic
+
+This page uses the GIPHY API to allow the user to display GIF's of a certain topic. There are some initial buttons displayed on the page, each with a different topic. If a user clicks on one of the buttons, a set amount of GIF's will appear on the page. Furthermore, the user is able to add their own button of whatever topic they desire and the page will update with the user's new button added.
